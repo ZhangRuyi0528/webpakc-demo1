@@ -1,0 +1,32 @@
+{
+  "name": "node-test",
+  "version": "0.0.1",
+  "description": "node",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZhangRuyi0528/webpack-demo1.git"
+  },
+  "keywords": [
+    "node",
+    "npm",
+    "webpack"
+  ],
+  "author": "zry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZhangRuyi0528/webpack-demo1/issues"
+  },
+  "homepage": "https://github.com/ZhangRuyi0528/webpack-demo1#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "vue": "^2.5.13",
+    "webpack": "^3.10.0"
+  }
+}
