@@ -27,6 +27,7 @@
   "homepage": "https://github.com/ZhangRuyi0528/webpack-demo1#readme",
   "dependencies": {
     "echarts": "^4.1.0",
+    "element-ui": "^2.4.0",
     "express": "^4.16.2",
     "vue": "^2.5.16",
     "webpack": "^3.10.0"
