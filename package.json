@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack"
+    "start": "webpack --progress --colors --watch",
+    "gulp-css": "style=style-loader!css-loader!"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,9 @@
     "webpack": "^3.10.0"
   },
   "devDependencies": {
+    "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
+    "style-loader": "^0.21.0",
     "vue": "^2.5.16"
   }
 }
