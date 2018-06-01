@@ -1,4 +1,8 @@
 (function() {
+    const webApp = (val) => {
+        return val += 1
+    }
+    console.log('33+1', webApp(33));
     console.log(12345678);
     // alert(3333345678);
     // new Vue()
