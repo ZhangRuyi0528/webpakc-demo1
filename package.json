@@ -31,6 +31,10 @@
     "element-ui": "^2.4.0",
     "express": "^4.16.2",
     "vue": "^2.5.16",
+    "vue-loader": "^13.7.2",//版本>=14太高，就需要在plugins中声明，否者打包出错
+    "vue-resource": "^1.5.1",
+    "vue-sticky": "^3.3.4",
+    "vue-template-compiler": "^2.5.16",//模板解析
     "webpack": "^3.10.0"
   },
   "devDependencies": {

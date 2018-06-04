@@ -32,6 +32,12 @@ module.exports = {
                     }
                 },
                 exclude: /node_modules/
+            },
+            {
+              test: /\.vue$/,
+              use: {
+                loader: 'vue-loader'
+              }
             }
         ]
     },
