@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>vue模块</h3
+        <h3>vue模块</h3>
         <ul>
             <li v-for="item in items">{{item.id}}</li>
         </ul>

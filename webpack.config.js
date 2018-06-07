@@ -22,6 +22,10 @@ module.exports = {
             // 等同于直接执行style=style-loader!css-loader!"   //css解析
             },
             {
+              test: /\.s[a|c]ss$/,
+              loaders: ['style-loader', 'css-loader', 'sass-loader']
+            },
+            {
                 test: /(\.jsx|\.js)$/,
                 use: {
                     loader: "babel-loader",

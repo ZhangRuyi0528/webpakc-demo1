@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>vue子组件模块</h3
+        <h3>vue子组件模块</h3>
         <ul>
             <li v-for="item in items">{{item.id}}</li>
         </ul>
@@ -27,9 +27,13 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     h3 {
         color: hotpink;
+        
+        &:hover {
+            color: red;
+        }
     }
     ul{
         list-style: none;
