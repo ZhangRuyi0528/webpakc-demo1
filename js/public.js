@@ -2,6 +2,9 @@
     new Vue()
     import Vue from 'vue';
     import App from './index.vue';
+    import ElementUI from 'element-ui';
+    import 'element-ui/lib/theme-chalk/index.css';
+    Vue.use(ElementUI);
 
     const webApp = (val) => {
         return val += 1
