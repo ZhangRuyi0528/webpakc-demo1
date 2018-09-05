@@ -24,6 +24,7 @@
 
 <script>
     export default {
+        name: 'page3',
         data() {
            return {
                 focused: this.value,

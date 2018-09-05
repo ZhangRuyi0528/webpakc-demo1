@@ -43,6 +43,7 @@ module.exports = {
                 loader: 'vue-loader'
               }
             },
+            // 解析vue引入的字符文件
             {
               test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg|svgz)$/,
               loader: 'file-loader',

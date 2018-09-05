@@ -15,7 +15,7 @@ console.log(file.toString())
 /*****非阻塞代码
  * 读取public代码
 */
-dir.readFile('./js/public.js', function(err, data) {
+dir.readFile('./src/public.js', function(err, data) {
     if (err) return console.error(err);
     console.log(data.toString());
 })
