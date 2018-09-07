@@ -15,3 +15,10 @@ webpack，node
 * npm i 安装依赖包
 * npm run dev 运行项目
 * open file => webpack-demo1/html/index.html
+
+# 页面配置
+* file 
+*      => lib               外部库
+*      => pages             页面层
+*      => components        组件
+*      => router            路由
