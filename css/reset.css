@@ -124,8 +124,12 @@ blockquote:after {
     content: none;
 }
 
-a img {
+a, img {
     border: none;
+}
+
+a {
+    text-decoration: none;
 }
 
 article,
