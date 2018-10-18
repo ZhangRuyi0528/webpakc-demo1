@@ -4,6 +4,47 @@
         <ul>
             <li v-for="item in items">{{item.id}}</li>
         </ul>
+        <!-----Row组件------>
+        <el-row>
+            <el-col :span="24">
+                <el-button type="success" circle></el-button>
+            </el-col>
+            <el-col :span="12">
+                <el-button type="primary"></el-button>
+            </el-col>
+            <el-col :span="12">
+                <el-button type="info" plain></el-button>
+            </el-col>
+            <el-col :span="16">
+                <el-button type="danger" round></el-button>
+            </el-col>
+        </el-row>
+        <!--混合布局-->
+        <el-row :gutter='20'>
+            <el-col :span="12">
+                <div class="Blue-bg">1</div>
+            </el-col>    
+            <el-col :span="12">
+                <div class="Blue-bg">2</div>
+            </el-col>    
+        </el-row>
+        <el-row :gutter="20">
+            <el-col :span="6"><div class="Blue-bg">6</div></el-col>
+            <el-col :span="6" :offset="6"><div class="Blue-bg">6</div></el-col>
+            <el-col :span="6" :offset="6"><div class="Blue-bg">6</div></el-col>
+            <el-col :span="6" :offset="6"><div class="Blue-bg">6</div></el-col>
+        </el-row>
+
+        <el-container>
+            <el-header>Header</el-header>
+            <el-container>
+                <el-aside width="200px">Aside</el-aside>
+                <el-main>Main</el-main>
+            </el-container>
+        </el-container>
+
+
+
     </div>
 </template>
 

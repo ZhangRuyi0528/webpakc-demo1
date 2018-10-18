@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>page3</h3>
+        <h3 class="el-icon-loading">page3</h3>
         <div id="jQ-tabs">
             <ul>
                 <li><a href="#fragment-1">One</a></li>

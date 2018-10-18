@@ -46,11 +46,12 @@ module.exports = {
             // 解析vue引入的字符文件
             {
               test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg|svgz)$/,
-              loader: 'file-loader',
+              loader: 'url-loader',
               options: {
                 name: '[name].[ext]?[hash]'
               }
             }
+            //对element的字体文件遇到与webpack版本冲突，故将file-loader换成url-loader
         ]
     },
     devServer: {

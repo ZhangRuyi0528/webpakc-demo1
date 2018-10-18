@@ -1,8 +1,8 @@
 <template>
     <div>
-        <h3><a href="index.html">pao</a></h3>
+        <h3 class="nav-h3"><a href="index.html#/page1" class="el-icon-loading">I Can Fly</a></h3>
         <nav id="proj_nav">
-            <ul>
+            <ul class="nav-list">
                 <li v-for="item in items"><router-link :to="item.link">{{item.id}}</router-link></li>
             </ul>
         </nav>
@@ -81,5 +81,34 @@
         height: 200px;
         margin: 0 auto;
         display: block;
+    }
+
+    .nav-h3 {
+        line-height: 200px;
+        padding-left: 40px;
+    }
+
+    .nav-list {
+        font-size: 24px;
+        color: #4680ff;
+        display: flex;
+        justify-content: space-around;
+
+        li {
+            width: 20%;
+            background: #ddd;
+            text-align: center;
+            float: left;
+            line-height: 30px;
+
+            &:hover {
+                background: #4680ff;
+                color: #fff;
+            }
+
+            a {
+                display: block;
+            }
+        }
     }
 </style>
