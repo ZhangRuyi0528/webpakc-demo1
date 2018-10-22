@@ -3,7 +3,7 @@
         <h3 class="nav-h3"><a href="index.html#/page1" class="el-icon-loading">I Can Fly</a></h3>
         <nav id="proj_nav">
             <ul class="nav-list">
-                <li v-for="item in items"><router-link :to="item.link">{{item.id}}</router-link></li>
+                <li v-for="item in items" :key="item.id"><router-link :to="item.link">{{item.id}}</router-link></li>
             </ul>
         </nav>
         <div id="banner">

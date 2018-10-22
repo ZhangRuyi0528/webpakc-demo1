@@ -10,6 +10,7 @@ import List from './pages/demo-list.vue';
 import Page2 from './pages/page2.vue';
 import Page3 from './pages/page3.vue';
 import Page4 from './pages/page4.vue';
+import TableList from './childPages/tableList.vue';
 
 Vue.use(VueRouter);
 
@@ -26,6 +27,12 @@ const router = new VueRouter({
         },
         {
             path: '/page4', component: Page4
+        },
+
+
+
+        {
+            path: '/childpage/tablepage', component: TableList
         }
     ]
 })

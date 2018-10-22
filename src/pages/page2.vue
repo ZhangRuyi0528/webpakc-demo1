@@ -2,7 +2,7 @@
     <div>
         <h3>page2</h3>
         <ul>
-            <li v-for="item in items">{{item.id}}</li>
+            <li v-for="item in items" :key="item.id">{{item.id}}</li>
         </ul>
         <!-----Row组件------>
         <el-row>
@@ -10,7 +10,8 @@
                 <el-button type="success" circle></el-button>
             </el-col>
             <el-col :span="12">
-                <el-button type="primary"></el-button>
+                <el-button type="primary" href="index.html#/childpage/tablepage">
+                </el-button>
             </el-col>
             <el-col :span="12">
                 <el-button type="info" plain></el-button>
@@ -28,6 +29,7 @@
                 <div class="Blue-bg">2</div>
             </el-col>    
         </el-row>
+        <hr>
         <el-row :gutter="20">
             <el-col :span="6"><div class="Blue-bg">6</div></el-col>
             <el-col :span="6" :offset="6"><div class="Blue-bg">6</div></el-col>
