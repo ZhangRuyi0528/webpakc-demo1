@@ -10,7 +10,8 @@
                 <el-button type="success" circle></el-button>
             </el-col>
             <el-col :span="12">
-                <el-button type="primary" href="index.html#/childpage/tablepage">
+                <el-button type="primary">
+                    <a href="index.html#/tablepage">table组件</a>
                 </el-button>
             </el-col>
             <el-col :span="12">

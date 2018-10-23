@@ -10,7 +10,7 @@
             <my-tabs :tabs="items" @clickId="requireApps">
 
             </my-tabs>
-            <ul v-for="item in items">
+            <ul v-for="item in items" :key="item.id">
                 <li>{{item.id}}</li>
             </ul>
         </div>

@@ -15,7 +15,7 @@
 <template>
     <section class="app_list_tab">
         <ul class="item">
-            <li v-for="(tab,index) in tabs" :TabId="tab.id" :name="tab.name" class="item-list" :class="{'active': (firstActive && index === 0) || tab.id === focused}" @click="toggleTab(tab.id,tab.children)">
+            <li v-for="(tab,index) in tabs" :key="tab.id" :TabId="tab.id" :name="tab.name" class="item-list" :class="{'active': (firstActive && index === 0) || tab.id === focused}" @click="toggleTab(tab.id,tab.children)">
                 {{tab.name}}
             </li>
         </ul>

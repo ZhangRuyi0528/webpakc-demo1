@@ -7,7 +7,10 @@
             </ul>
         </nav>
         <div id="banner">
-            <img src="" alt="">
+            <Banner>
+
+            </Banner>
+            <!-- <img src="./img/Timber_wolf.jpg"> -->
         </div>
         <div id="wrap-router">
             <router-view>
@@ -19,6 +22,7 @@
 
 
 <script>
+    import banner from "./childPgs/carousel.vue";
     export default {
         name: 'page1',
         data() {
@@ -32,7 +36,7 @@
             }
         },
         components: {
-
+            Banner: banner,
         },
         created() {
 
@@ -56,29 +60,46 @@
     }
 
     #proj_nav {
-        width: 61.8%;
         height: auto;
         margin: 0 auto;
+        position: fixed;
+        right: 50px;
+        top: 200px;
 
-        ul {
-            display: flex;
-            border-right: 0;
-            
+        .nav-list {
+            font-size: 24px;
+            color: #4680ff;
             @include border-1($color: $color-a);
 
             &>li {
                 padding: 10px 0;
                 flex-grow: 1;
                 text-align: center;
-                @include floatL;
+                // @include floatL;
                 @include border-1($color: $color-a);
+            }
+
+            li {
+                width: 40px;
+                background: #ddd;
+                text-align: center;
+                line-height: 30px;
+
+                &:hover {
+                    background: #4680ff;
+                    color: #fff;
+                }
+
+                a {
+                    display: block;
+                }
             }
         }
     }
 
     #banner {
         width: 80%;
-        height: 200px;
+        height: auto;
         margin: 0 auto;
         display: block;
     }
@@ -88,27 +109,5 @@
         padding-left: 40px;
     }
 
-    .nav-list {
-        font-size: 24px;
-        color: #4680ff;
-        display: flex;
-        justify-content: space-around;
-
-        li {
-            width: 20%;
-            background: #ddd;
-            text-align: center;
-            float: left;
-            line-height: 30px;
-
-            &:hover {
-                background: #4680ff;
-                color: #fff;
-            }
-
-            a {
-                display: block;
-            }
-        }
-    }
+    
 </style>

@@ -48,7 +48,8 @@ module.exports = {
               test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg|svgz)$/,
               loader: 'url-loader',
               options: {
-                name: '[name].[ext]?[hash]'
+                name: '[name].[ext]?[hash]',
+                publicPath:'/'
               }
             }
             //对element的字体文件遇到与webpack版本冲突，故将file-loader换成url-loader
