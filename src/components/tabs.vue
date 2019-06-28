@@ -10,7 +10,7 @@
 *   value [Number, String] 组件v-model的绑定值
 *
 *   使用方法：
-＊　<component v-model="actived" :tabs="" ></component>
+＊ <component v-model="actived" :tabs="" ></component>
 */
 <template>
     <section class="app_list_tab">

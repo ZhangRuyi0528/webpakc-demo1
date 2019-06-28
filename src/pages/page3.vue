@@ -23,7 +23,7 @@
 
 
 <script>
-
+    import $ from 'jquery';
     export default {
         name: 'page3',
         data() {
@@ -38,7 +38,11 @@
 
         },
         methods: {
-            
+            aa() {
+                return () => {
+                    console.log(2222);
+                }
+            },
         },
         mounted() {
             $('#jQ-tabs').tabs({

@@ -16,6 +16,18 @@ webpack，node
 * npm run dev 运行项目
 * open file => webpack-demo1/html/index.html
 
+# 安装 eslint
+* npm i eslint
+* eslint --init
+* eslint package.json include
+*       'eslint-plugin-vue@latest,
+*       eslint-config-eslint,
+*       essential@latest,
+*       vue-eslint-parser',
+
+* global,test: eslint --ext .js,.vue + (/dir)
+* pre-commit: 
+
 # 页面配置
 * file 
 *      => lib               外部库

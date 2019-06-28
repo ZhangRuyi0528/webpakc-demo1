@@ -4,7 +4,14 @@
         <br>
         <div>
             <el-button type="primary">主要按钮</el-button>
-            <el-radio v-model="radio" label="1">备选项</el-radio>
+            <el-radio v-model="radio" label="1">备选项1</el-radio>
+            <el-radio v-model="radio" label="1">备选项2</el-radio>
+            <el-radio v-model="radio" label="1">备选项3</el-radio>
+            <form action="">
+                11<input type="radio" name="value" value="11"/>
+                22<input type="radio" name="value" value="2"/>
+                33<input type="radio" name="value" value="3"/>
+            </form>
         </div>
         <div>
             <my-tabs :tabs="items" @clickId="requireApps">
