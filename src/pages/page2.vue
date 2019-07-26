@@ -22,20 +22,28 @@
             </el-col>
         </el-row>
         <!--混合布局-->
-        <el-row :gutter='20'>
+        <el-row :gutter="20">
             <el-col :span="12">
                 <div class="Blue-bg">1</div>
-            </el-col>    
+            </el-col>
             <el-col :span="12">
                 <div class="Blue-bg">2</div>
-            </el-col>    
+            </el-col>
         </el-row>
-        <hr>
+        <hr />
         <el-row :gutter="20">
-            <el-col :span="6"><div class="Blue-bg">6</div></el-col>
-            <el-col :span="6" :offset="6"><div class="Blue-bg">6</div></el-col>
-            <el-col :span="6" :offset="6"><div class="Blue-bg">6</div></el-col>
-            <el-col :span="6" :offset="6"><div class="Blue-bg">6</div></el-col>
+            <el-col :span="6">
+                <div class="Blue-bg">6</div>
+            </el-col>
+            <el-col :span="6" :offset="6">
+                <div class="Blue-bg">6</div>
+            </el-col>
+            <el-col :span="6" :offset="6">
+                <div class="Blue-bg">6</div>
+            </el-col>
+            <el-col :span="6" :offset="6">
+                <div class="Blue-bg">6</div>
+            </el-col>
         </el-row>
 
         <el-container>
@@ -45,48 +53,38 @@
                 <el-main>Main</el-main>
             </el-container>
         </el-container>
-
-
-
     </div>
 </template>
 
 
 <script>
-
-    export default {
-        name: 'page2',
-        data() {
-            return {
-               items: [
-                    { id: 'aaaaaa', text: '11'},
-                    { id: 'bbbbbbbbbbb', text: '22'},
-                    { id: 'ccccccccccc', text: '33'},
-                    { id: 'dddddddddddd', text: '44'},
-                ]
-            }
-        },
-        pops: [],
-        components: {
-        },
-        created() {
-
-        },
-        methods: {
-            
-        },
-        mounted() {
-           
-        }
+export default {
+    name: 'page2',
+    data() {
+        return {
+            items: [
+                { id: 'aaaaaa', text: '11' },
+                { id: 'bbbbbbbbbbb', text: '22' },
+                { id: 'ccccccccccc', text: '33' },
+                { id: 'dddddddddddd', text: '44' }
+            ]
+        };
+    },
+    pops: [],
+    components: {},
+    created() {},
+    methods: {},
+    mounted() {
+        console.log(12345678, 'rtyujk');
     }
-
+};
 </script>
 
 <style lang="scss" scoped>
-    ul {
-        list-style: none;
-        li {
-            font-size: 30px;
-        }
+ul {
+    list-style: none;
+    li {
+        font-size: 30px;
     }
+}
 </style>

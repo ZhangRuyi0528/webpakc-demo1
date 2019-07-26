@@ -19,14 +19,11 @@ webpack，node
 # 安装 eslint
 * npm i eslint
 * eslint --init
-* eslint package.json include
-*       'eslint-plugin-vue@latest,
-*       eslint-config-eslint,
-*       essential@latest,
-*       vue-eslint-parser',
+* eslint package.json include 'eslint-plugin-vue@latest, eslint-config-eslint,
+*       essential@latest, vue-eslint-parser',
 
 * global,test: eslint --ext .js,.vue + (/dir)
-* pre-commit: 
+* pre-commit: 需安装lint-staged
 
 # 页面配置
 * file 

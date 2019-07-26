@@ -9,8 +9,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --progress --colors --watch",
+    "dev-once": "webpack --progress --colors",
     "precommit": "lint-staged",
-    "eslint-test": "eslint --ext .js,.vue src",
+    "eslint": "eslint --ext .js,.vue src",
     "server": "webpack-dev-server --open"
   },
   "repository": {
@@ -46,12 +47,15 @@
     "webpack": "^3.10.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
     "eslint": "^6.0.1",
+    "eslint-config-airbnb": "^17.1.1",
     "eslint-config-eslint": "^5.0.1",
     "eslint-plugin-vue": "^5.2.3",
     "essential": "^0.0.1",
@@ -63,18 +67,16 @@
     "vue-eslint-parser": "^6.0.4",
     "webpack-dev-server": "^3.1.4"
   },
-
   "husky": {
     "hooks": {
-      "pre-commit": "npm test"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged && npm run eslint"
     }
   },
-
   "lint-staged": {
-    "*.js": [
+    "*.{js,vue}": [
       "eslint",
       "git add"
     ]
   }
-
 }
