@@ -25,6 +25,14 @@ webpack，node
 * global,test: eslint --ext .js,.vue + (/dir)
 * pre-commit: 需安装lint-staged
 
+* husky配置hooks定义
+*   =》代码检测规范，会访问自身定义的pre-commit脚本
+*       :基于eslint规范加入自定义rules
+*   =》提交规范，会访问自身定义的commitlint.config配置文件
+*       引入@commitlint/cli"， "@commitlint/config-conventional
+*       栗子:<type>: <subject>
+
+
 # 页面配置
 * file 
 *      => lib               外部库
