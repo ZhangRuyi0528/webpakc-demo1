@@ -7,11 +7,12 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --progress --colors --watch",
     "dev-once": "webpack --progress --colors",
     "precommit": "lint-staged",
     "eslint": "eslint --ext .js,.vue src",
+    "serve-hot": "webpack-dev-server --hot --inline",
+    "serve": "webpack --optimize-minimize",
     "server": "webpack-dev-server --open"
   },
   "repository": {
@@ -34,6 +35,7 @@
     "element-ui": "^2.4.0",
     "express": "^4.16.2",
     "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
     "jquery": "^3.4.1",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.3",
@@ -44,7 +46,9 @@
     "vue-router": "^3.0.6",
     "vue-sticky": "^3.3.4",
     "vue-template-compiler": "^2.5.16",
-    "webpack": "^3.10.0"
+    "webpack": "^3.10.0",
+    "webpack-cli": "^2.1.0",
+    "webpack-dev-server": "2.9.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
@@ -64,8 +68,7 @@
     "lint-staged": "^8.2.1",
     "style-loader": "^0.21.0",
     "vue": "^2.5.16",
-    "vue-eslint-parser": "^6.0.4",
-    "webpack-dev-server": "^3.1.4"
+    "vue-eslint-parser": "^6.0.4"
   },
   "husky": {
     "hooks": {
