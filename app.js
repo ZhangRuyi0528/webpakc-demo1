@@ -8,6 +8,7 @@
  * **/ 
 // require('./css/index.css');
 import './css/index.css';
+import './css/reset.css';
 import './src/public.js';
 
 // const webp = require('./src/public.js');
