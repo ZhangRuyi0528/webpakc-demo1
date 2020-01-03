@@ -1,5 +1,4 @@
 const app = require('http'),
-    express = require('express'),
     dir = require('fs');
 
 app.createServer((request, response) => (
@@ -9,7 +8,7 @@ app.createServer((request, response) => (
 ).listen(5656)
 
 /****阻塞代码***/
-let file = dir.readFileSync('./html/abc.text');
+let file = dir.readFileSync('./html/index.html');
 console.log(file.toString())
 
 /*****非阻塞代码
@@ -24,18 +23,18 @@ console.log(123456789);
 app.createServer((req, res) => {
     let path = req.url.replace(/\/?(?:\?.*)?$/, '').toLowerCase();
     switch (path) {
-        case '':
-            res.writeHead(200, {'Content-Type': 'text/plain'})
-            res.end('200空')
+    case '':
+        res.writeHead(200, {'Content-Type': 'text/plain'})
+        res.end('200空')
         break;
-        case '/index':
-            res.writeHead(200, {'Content-Type': 'utf-8'})
-            res.end('index页面')
+    case '/index':
+        res.writeHead(200, {'Content-Type': 'utf-8'})
+        res.end('index页面')
         break;
-        default: 
-        
-            res.writeHead(404, {'Content-Type': 'text/plain'})
-            res.end('页面飞走了')
+    default: 
+    
+        res.writeHead(404, {'Content-Type': 'text/plain'})
+        res.end('页面飞走了')
         break;
     }
 }).listen(5555)

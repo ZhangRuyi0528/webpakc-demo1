@@ -7,9 +7,14 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --progress --colors --watch",
-    "server": "webpack-dev-server --open"
+    "dev-once": "webpack --progress --colors --optimize-minimize",
+    "precommit": "lint-staged",
+    "eslint": "eslint --ext .js,.vue src",
+    "serve-hot": "webpack-dev-server --hot --inline",
+    "serve": "webpack-dev-server --open",
+    "serve-pro": "webpack-dev-server --config webpack.argv.config.js --env production",
+    "serve-dev": "webpack-dev-server --config webpack.argv.config.js --env development"
   },
   "repository": {
     "type": "git",
@@ -31,24 +36,51 @@
     "element-ui": "^2.4.0",
     "express": "^4.16.2",
     "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "jquery": "^3.4.1",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.3",
+    "url-loader": "^1.1.2",
     "vue": "^2.5.16",
     "vue-loader": "^13.7.2",
     "vue-resource": "^1.5.1",
+    "vue-router": "^3.0.6",
     "vue-sticky": "^3.3.4",
     "vue-template-compiler": "^2.5.16",
-    "webpack": "^3.10.0"
+    "webpack": "^3.10.0",
+    "webpack-cli": "^2.1.0",
+    "webpack-dev-server": "2.9.4"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-eslint": "^5.0.1",
+    "eslint-plugin-vue": "^5.2.3",
+    "essential": "^0.0.1",
     "file-loader": "^1.1.11",
+    "husky": "^2.7.0",
+    "lint-staged": "^8.2.1",
     "style-loader": "^0.21.0",
     "vue": "^2.5.16",
-    "webpack-dev-server": "^3.1.4"
+    "vue-eslint-parser": "^6.0.4"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged && npm run eslint"
+    }
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "eslint",
+      "git add"
+    ]
   }
 }

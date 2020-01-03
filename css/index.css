@@ -9,3 +9,8 @@ div {
 #wrap-vue {
     color: aquamarine;
 }
+
+.Blue-bg {
+    background: #4680ff;
+    text-align: center;
+}
