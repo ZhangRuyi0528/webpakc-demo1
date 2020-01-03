@@ -4,15 +4,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 console.log(1111, __dirname);
 
-module.exports = {
+let config = {
     devtool: 'eval-source-map',
-    entry:  {
-        app: './app.js',
-        server: './a_server.js'
-    },//入口文件
+    entry:  __dirname + '/app.js',//入口文件
     output: {
-        path: path.resolve(__dirname, 'bundle'),//打包后的文件存放的地方
-        filename: '[name].bundle.js',//打包后输出文件的文件名
+        // path: __dirname + '/bundle',//打包后的文件存放的地方
+        path: path.resolve(__dirname + 'bundle/'),//打包后的文件存放的地方
+        filename: 'entry.js'//打包后输出文件的文件名
     },
     module: {
         rules: [
@@ -68,13 +66,22 @@ module.exports = {
         port: 8090, //启动端口
         inline: true//实时刷新
     },
-    node: {
-        fs: 'empty'
-    },
     plugins: [
         new HtmlWebpackPlugin({
             title: '测试webpack 实例',
             template: './html/index.html'
         })
     ]
+}
+
+module.exports = (env, argv) => {
+    if (env === 'development') {
+        config.devtool = 'source-map';
+    }
+
+    if (env === 'production') {
+        config.devtool = 'eval-source-map';
+    }
+
+    return config;
 }

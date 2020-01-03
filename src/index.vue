@@ -38,7 +38,10 @@ export default {
     components: {
         Banner: banner
     },
-    created() {}
+    created() {
+        console.log(234234);
+        
+    }
 };
 </script>
 

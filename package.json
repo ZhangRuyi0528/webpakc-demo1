@@ -12,7 +12,9 @@
     "precommit": "lint-staged",
     "eslint": "eslint --ext .js,.vue src",
     "serve-hot": "webpack-dev-server --hot --inline",
-    "serve": "webpack-dev-server --open"
+    "serve": "webpack-dev-server --open",
+    "serve-pro": "webpack-dev-server --config webpack.argv.config.js --env production",
+    "serve-dev": "webpack-dev-server --config webpack.argv.config.js --env development"
   },
   "repository": {
     "type": "git",
