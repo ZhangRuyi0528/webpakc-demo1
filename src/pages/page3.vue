@@ -19,6 +19,9 @@
                 aliquam erat volutpat.
             </div>
             <div id="fragment-3">aliquam erat volutpat.</div>
+            <div id="page3-map">
+                
+            </div>
         </div>
     </div>
 </template>
@@ -42,22 +45,6 @@ export default {
         }
     },
     mounted() {
-        $('#jQ-tabs').tabs({
-            active: 11,
-            heightStyle: 'fill',
-            activate: (event, ui) => {
-                console.log(event, $(ui.newTab));
-            },
-            beforeActivate: () => {
-                alert(1);
-                return 1;
-
-
-            }
-            // actice: (e) => {
-            //     console.log(111111, e)
-            // }
-        });
     }
 };
 </script>

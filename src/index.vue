@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="wrap-view">
         <h3 class="nav-h3">
             <a href="index.html#/page1" class="el-icon-loading">I Can Fly</a>
         </h3>
@@ -12,7 +12,6 @@
         </nav>
         <div id="banner">
             <Banner></Banner>
-            <!-- <img src="./img/Timber_wolf.jpg"> -->
         </div>
         <div id="wrap-router">
             <router-view></router-view>
@@ -46,6 +45,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import './Mixin/nicesroll.scss';
 /*色值设置*/
 $color-a: #4680ff;
 
@@ -58,6 +58,13 @@ $color-a: #4680ff;
 }
 @mixin floatR {
     float: left;
+}
+
+#wrap-view {
+    height: 100%;
+    overflow: hidden;
+
+    @include scrollBar;
 }
 
 #proj_nav {
