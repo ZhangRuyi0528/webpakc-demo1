@@ -1,3 +1,10 @@
+/*
+ * @Author: zry
+ * @Date: 2021-03-30 15:53:45
+ * @LastEditors: zry
+ * @LastEditTime: 2021-03-30 17:43:26
+ * @Description: 
+ */
 /****
  * 
  * 页面路由组件配入
@@ -17,6 +24,7 @@ import Map from './childPgs/Map.vue';
 Vue.use(VueRouter);
 
 const router = new VueRouter({
+    mode: 'history',
     //页面所能访问页面
     routes: [
         {

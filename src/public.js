@@ -1,3 +1,10 @@
+/*
+ * @Author: zry
+ * @Date: 2021-03-30 15:53:16
+ * @LastEditors: zry
+ * @LastEditTime: 2021-03-30 16:55:17
+ * @Description: 
+ */
 // (function() {
 new Vue()
 import Vue from 'vue';
@@ -11,10 +18,9 @@ Vue.use(ElementUI);
 // Vue.use(VueResource)
 
 new Vue({
-    el: '#wrap-vue',
     router,
     render: h => h(App)
-});
+}).$mount('#wrap-vue');
 // })();
 // module.exports = function() {
 //     var greet = document.createElement('div');
