@@ -8,7 +8,7 @@ module.exports = {
     devtool: 'eval-source-map',
     entry:  {
         app: './app.js',
-        server: './a_server.js'
+        // server: './a_server.js'
     },//入口文件
     output: {
         path: path.resolve(__dirname, 'bundle'),//打包后的文件存放的地方
@@ -29,7 +29,7 @@ module.exports = {
             // 等同于直接执行style=style-loader!css-loader!'   //css解析
             },
             {
-                test: /\.s[a|c]ss$/,
+                test: /\.s[c|a]ss$/,
                 loaders: ['style-loader', 'css-loader', 'sass-loader']
             },
             {
