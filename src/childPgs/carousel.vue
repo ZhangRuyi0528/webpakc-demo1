@@ -82,7 +82,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import url("//unpkg.com/element-ui@2.4.8/lib/theme-chalk/index.css");
+// @import url("//unpkg.com/element-ui@2.4.8/lib/theme-chalk/index.css");
 
 .wrap-carousel {
     width: 70%;

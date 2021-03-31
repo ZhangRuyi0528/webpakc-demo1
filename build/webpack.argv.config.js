@@ -1,15 +1,23 @@
+/*
+ * @Author: zry
+ * @Date: 2021-03-30 15:53:16
+ * @LastEditors: zry
+ * @LastEditTime: 2021-03-31 17:33:50
+ * @Description: 
+ */
 /* eslint-disable */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-console.log(1111, __dirname);
+const basePath = path.resolve(__dirname + './../');
+console.log(1111, __dirname, basePath);
 
 let config = {
     devtool: 'eval-source-map',
-    entry:  __dirname + '/app.js',//入口文件
+    entry: path.resolve(__dirname + './../app.js'), // 入口文件
     output: {
         // path: __dirname + '/bundle',//打包后的文件存放的地方
-        path: path.resolve(__dirname + 'bundle/'),//打包后的文件存放的地方
+        path: path.resolve(basePath + './bundle'),//打包后的文件存放的地方
         filename: 'entry.js'//打包后输出文件的文件名
     },
     module: {
@@ -36,7 +44,7 @@ let config = {
                     loader: 'babel-loader',
                     options: {
                         presets: [
-                            'env', 'react'
+                            'es2015', 'react'
                         ]
                     }
                 },
@@ -61,7 +69,7 @@ let config = {
         ]
     },
     devServer: {
-        contentBase: path.join(__dirname, 'build'),//本地服务器所加载的页面所在的目录
+        contentBase: __dirname,//本地服务器所加载的页面所在的目录
         historyApiFallback: true,//不跳转
         port: 8090, //启动端口
         inline: true//实时刷新
@@ -69,7 +77,8 @@ let config = {
     plugins: [
         new HtmlWebpackPlugin({
             title: '测试webpack 实例',
-            template: './html/index.html'
+            favicon: './zry.ico',
+            template: './app/html/index.html'
         })
     ]
 }

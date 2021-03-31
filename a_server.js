@@ -1,3 +1,10 @@
+/*
+ * @Author: zry
+ * @Date: 2021-03-30 15:53:16
+ * @LastEditors: zry
+ * @LastEditTime: 2021-03-31 14:50:10
+ * @Description: 
+ */
 const app = require('http'),
     dir = require('fs');
 
@@ -8,7 +15,7 @@ app.createServer((request, response) => (
 ).listen(5656)
 
 /****阻塞代码***/
-let file = dir.readFileSync('./html/index.html');
+let file = dir.readFileSync('./app/html/index.html');
 console.log(file.toString())
 
 /*****非阻塞代码

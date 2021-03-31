@@ -7,14 +7,14 @@
     "lib": "lib"
   },
   "scripts": {
-    "dev": "webpack --progress --colors --watch",
-    "dev-once": "webpack --progress --colors --optimize-minimize",
+    "build": "webpack --config build/webpack.config.js",
+    "build-once": "webpack --config build/webpack.config.js --progress --colors --optimize-minimize",
     "precommit": "lint-staged",
     "eslint": "eslint --ext .js,.vue src",
     "serve-hot": "webpack-dev-server --hot --inline",
     "serve": "webpack-dev-server --open",
-    "serve-pro": "webpack-dev-server --config webpack.argv.config.js --env production",
-    "serve-dev": "webpack-dev-server --config webpack.argv.config.js --env development"
+    "serve-pro": "webpack-dev-server --config build/webpack.argv.config.js --env production",
+    "serve-dev": "webpack-dev-server --config build/webpack.argv.config.js --env development"
   },
   "repository": {
     "type": "git",
@@ -42,7 +42,7 @@
     "sass-loader": "^7.0.3",
     "url-loader": "^1.1.2",
     "vue": "^2.5.16",
-    "vue-loader": "^13.7.2",
+    "vue-loader": "^14.2.0",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.6",
     "vue-sticky": "^3.3.4",
@@ -68,8 +68,7 @@
     "husky": "^2.7.0",
     "lint-staged": "^8.2.1",
     "style-loader": "^0.21.0",
-    "vue": "^2.5.16",
-    "vue-eslint-parser": "^6.0.4"
+    "webpack-merge": "^5.7.3"
   },
   "husky": {
     "hooks": {
