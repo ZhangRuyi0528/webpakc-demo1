@@ -13,11 +13,10 @@ const basePath = path.resolve(__dirname + './../');
 console.log(1111, __dirname, basePath);
 
 let config = {
-    devtool: 'eval-source-map',
     entry: path.resolve(__dirname + './../app.js'), // 入口文件
     output: {
         // path: __dirname + '/bundle',//打包后的文件存放的地方
-        path: path.resolve(basePath + './bundle'),//打包后的文件存放的地方
+        path: basePath + '/bundle',//打包后的文件存放的地方
         filename: 'entry.js'//打包后输出文件的文件名
     },
     module: {
@@ -71,7 +70,7 @@ let config = {
     devServer: {
         contentBase: __dirname,//本地服务器所加载的页面所在的目录
         historyApiFallback: true,//不跳转
-        port: 8090, //启动端口
+        // port: 8090, //启动端口
         inline: true//实时刷新
     },
     plugins: [

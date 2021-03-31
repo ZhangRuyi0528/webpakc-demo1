@@ -14,8 +14,8 @@
  * require,webpack
  * **/ 
 // require('./css/index.css');
-// import './assets/css/index.css';
-// import './assets/css/reset.css';
+import './assets/css/index.css';
+import './assets/css/reset.css';
 import './src/public.js';
 
 // const webp = require('./src/public.js');
