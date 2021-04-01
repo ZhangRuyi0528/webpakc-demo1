@@ -10,6 +10,7 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 const common = require('./webpack.argv.config.js')();
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackBundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const basePath = path.resolve(__dirname + './../');
 console.log(1111, __dirname, basePath + '/bundle');
 
@@ -26,6 +27,7 @@ module.exports = merge(common, {
             title: 'Your`s X-Jewelry',
             favicon: './zry.ico',
             template: path.resolve(basePath + '/app/html/index.html')
-        })
+        }),
+        // new WebpackBundleAnalyzer(),
     ]
 });

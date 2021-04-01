@@ -8,9 +8,10 @@
 /* eslint-disable */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtennalPlugin = require('./ExternalPlugin');
 
 const basePath = path.resolve(__dirname + './../');
-console.log(1111, __dirname, basePath);
+console.log(1111, __dirname, basePath, 99199, ExtennalPlugin.externals);
 
 let config = {
     entry: path.resolve(__dirname + './../app.js'), // 入口文件
@@ -19,6 +20,10 @@ let config = {
         path: basePath + '/bundle',//打包后的文件存放的地方
         filename: 'entry.js'//打包后输出文件的文件名
     },
+    resolve: {
+        extensions: ['.js', '.vue'],
+    },
+    externals: ExtennalPlugin.externals,
     module: {
         rules: [
             { 
@@ -74,6 +79,7 @@ let config = {
         inline: true//实时刷新
     },
     plugins: [
+        // new ExtennalPlugin(),
         new HtmlWebpackPlugin({
             title: '测试webpack 实例',
             favicon: './zry.ico',

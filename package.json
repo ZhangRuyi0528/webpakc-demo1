@@ -2,13 +2,14 @@
   "name": "node-test",
   "version": "0.0.1",
   "description": "node",
-  "main": "app.js",
+  "main": "bundle/main.bundle.js",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
     "build": "webpack --config build/webpack.config.js",
     "build-once": "webpack --config build/webpack.config.js --progress --colors --optimize-minimize",
+    "analysis": "webpack --config build/webpack.config.js --progress --colors --optimize-minimize",
     "precommit": "lint-staged",
     "eslint": "eslint --ext .js,.vue src",
     "serve-hot": "webpack-dev-server --hot --inline",
@@ -58,6 +59,7 @@
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^0.28.11",
     "eslint": "^6.0.1",
     "eslint-config-airbnb": "^17.1.1",
@@ -68,6 +70,7 @@
     "husky": "^2.7.0",
     "lint-staged": "^8.2.1",
     "style-loader": "^0.21.0",
+    "webpack-bundle-analyzer": "^4.4.0",
     "webpack-merge": "^5.7.3"
   },
   "husky": {

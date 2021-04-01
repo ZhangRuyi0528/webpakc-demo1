@@ -19,7 +19,7 @@ import Page3 from './pages/page3.vue';
 import Page4 from './pages/page4.vue';
 import TableList from './childPgs/tableList.vue';
 import Carousel from './childPgs/carousel.vue';
-import Map from './childPgs/Map.vue';
+import Map from './childPgs/Map';
 
 Vue.use(VueRouter);
 

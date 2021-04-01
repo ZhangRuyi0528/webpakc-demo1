@@ -14,7 +14,9 @@
             <Banner></Banner>
         </div>
         <div id="wrap-router">
-            <router-view></router-view>
+            <router-view>
+                
+            </router-view>
         </div>
     </div>
 </template>
