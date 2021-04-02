@@ -2,7 +2,7 @@
  * @Author: zry
  * @Date: 2021-03-30 15:53:45
  * @LastEditors: zry
- * @LastEditTime: 2021-03-31 17:37:31
+ * @LastEditTime: 2021-04-02 16:59:31
  * @Description: 
  */
 /* eslint-disable */
@@ -23,11 +23,11 @@ module.exports = merge(common, {
         filename: '[name].bundle.js',//打包后输出文件的文件名
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            title: 'Your`s X-Jewelry',
-            favicon: './zry.ico',
-            template: path.resolve(basePath + '/app/html/index.html')
-        }),
         // new WebpackBundleAnalyzer(),
+    //     // new HtmlWebpackPlugin({
+    //     //     title: 'Your`s X-Jewelry',
+    //     //     favicon: './zry.ico',
+    //     //     template: path.resolve(basePath + '/app/html/index.html')
+    //     // }),
     ]
 });

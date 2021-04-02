@@ -2,18 +2,29 @@
  * @Author: zry
  * @Date: 2021-03-30 15:53:16
  * @LastEditors: zry
- * @LastEditTime: 2021-03-31 17:33:50
+ * @LastEditTime: 2021-04-02 17:23:29
  * @Description: 
  */
 /* eslint-disable */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtennalPlugin = require('./ExternalPlugin');
+
+// 清除之前构建
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// 构建日志优化提示
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+
+// const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
+const ExternalPlugin = require('./ExternalPlugin');
+
+const webpack = require('webpack');
 
 const basePath = path.resolve(__dirname + './../');
-console.log(1111, __dirname, basePath, 99199, ExtennalPlugin.externals);
+const env = process.argv.env || 'production';
+console.log(env, 1111, __dirname, basePath, 99199, ExternalPlugin.externals);
 
 let config = {
+    mode: env,
     entry: path.resolve(__dirname + './../app.js'), // 入口文件
     output: {
         // path: __dirname + '/bundle',//打包后的文件存放的地方
@@ -23,7 +34,29 @@ let config = {
     resolve: {
         extensions: ['.js', '.vue'],
     },
-    externals: ExtennalPlugin.externals,
+    // optimization: {
+    //     // runtimeChunk: {
+    //     //     name: 'manifest'
+    //     // },
+    //     splitChunks: {
+    //         maxInitialRequests: 10,
+    //         cacheGroups: {
+    //             common: {
+    //                 name: 'common',
+    //                 //chunks: 'all'
+    //             },
+    //             vue: {
+    //                 name: 'Vue',
+    //                 //chunks: 'all'
+    //             },
+    //             ELEMENT: {
+    //                 name: 'ELEMENT',
+    //                 //chunks: 'all'
+    //             },
+    //         }
+    //     },
+    // },
+    externals: ExternalPlugin.externals,
     module: {
         rules: [
             { 
@@ -79,12 +112,18 @@ let config = {
         inline: true//实时刷新
     },
     plugins: [
-        // new ExtennalPlugin(),
         new HtmlWebpackPlugin({
             title: '测试webpack 实例',
             favicon: './zry.ico',
-            template: './app/html/index.html'
-        })
+            template: './app/html/index.html',
+        }),
+        // new HtmlWebpackIncludeAssetsPlugin({
+        //     tags: ['https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js'],
+        //     append: false
+        // }),
+        new ExternalPlugin(),
+        new FriendlyErrorsWebpackPlugin(),
+        new CleanWebpackPlugin(),
     ]
 }
 

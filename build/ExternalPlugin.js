@@ -1,6 +1,10 @@
+/* eslint-disable */
 'use strict';
-
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+// 插件已不维护，替换html-webpack-tags-plugin
+// const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
+const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-tags-plugin');
+
 const path = require('path');
 const fs = require('fs');
 
@@ -68,6 +72,7 @@ class WebpackExternalPlugin {
     apply(compiler) {
         const isDevelopment = process.env.NODE_ENV !== 'production';
         const copyConfigs = [];
+        let externalsConfig = [];
         const venders = {
             js: [],
             css: []
@@ -80,18 +85,29 @@ class WebpackExternalPlugin {
             ));
             resources.scripts.forEach(script => {
                 const distFileName = `${externalConfig.name}-${version}/${path.basename(script)}`;
-                const distPath = `${venderPath}/bundle/vender/${distFileName}`;
+                const distPath = `${venderPath}bundle/vender/${distFileName}`;
                 venders.js.push(`/bundle/vender/${distFileName}`);
+                externalsConfig.push({
+                    path: `/vender/${distFileName}`
+                });
                 copyConfigs.push({
                     from: script,
                     to: distPath,
                     force: true
                 });
+
             });
         });
-        console.log('conpuConfigs', copyConfigs);
         new CopyWebpackPlugin(copyConfigs).apply(compiler);
+        console.log('copyConfigs', copyConfigs, externalsConfig);
+        new HtmlWebpackIncludeAssetsPlugin({
+            // externals: externalsConfig,
+            // outputPath: ''
+            scripts: externalsConfig,
+            append: false,
+        }).apply(compiler);
         compiler.hooks.emit.tapAsync({ name: 'WebpackExternalPlugin' }, (compilation, callback) => {
+            // 写入webpack-vender包，为注入html
             fs.writeFile(`${venderPath}/webpack-venders.json`, JSON.stringify(venders), 'utf8', function(err) {
                 if (err) {
                     compilation.errors.push(err);
