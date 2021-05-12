@@ -41,15 +41,11 @@ const externalConfigs = [
         var: 'jQuery',
         resources: isDevelopment => getDistVendorResources('jquery', isDevelopment)
     },
-    // {
-    //     name: 'better-scroll',
-    //     var: 'BScroll',
-    //     resources: isDevelopment => ({
-    //         scripts: [
-    //             path.join(__dirname, `../node_modules/better-scroll/dist/bscroll.${isDevelopment ? '' : 'min.'}js`)
-    //         ]
-    //     })
-    // },
+    {
+        name: 'vue-router',
+        var: 'VueRouter',
+        resources: isDevelopment => getDistVendorResources('vue-router', isDevelopment)
+    },
     {
         name: 'element-ui',
         var: 'ELEMENT',
@@ -88,7 +84,7 @@ class WebpackExternalPlugin {
                 const distPath = `${venderPath}bundle/vender/${distFileName}`;
                 venders.js.push(`/bundle/vender/${distFileName}`);
                 externalsConfig.push({
-                    path: `/vender/${distFileName}`
+                    path: `./vender/${distFileName}`
                 });
                 copyConfigs.push({
                     from: script,
@@ -100,6 +96,7 @@ class WebpackExternalPlugin {
         });
         new CopyWebpackPlugin(copyConfigs).apply(compiler);
         console.log('copyConfigs', copyConfigs, externalsConfig);
+        // html中插入脚本依赖
         new HtmlWebpackIncludeAssetsPlugin({
             // externals: externalsConfig,
             // outputPath: ''
@@ -107,11 +104,12 @@ class WebpackExternalPlugin {
             append: false,
         }).apply(compiler);
         compiler.hooks.emit.tapAsync({ name: 'WebpackExternalPlugin' }, (compilation, callback) => {
-            // 写入webpack-vender包，为注入html
+            // 写入webpack-vender包，方便查询
             fs.writeFile(`${venderPath}/webpack-venders.json`, JSON.stringify(venders), 'utf8', function(err) {
                 if (err) {
                     compilation.errors.push(err);
                 }
+                // 用于自定义的webpack插件能执行，真正要做的就是上面CopyWebpackPlugin，HtmlWebpackIncludeAssetsPlugin插入html
                 callback();
             });
         });

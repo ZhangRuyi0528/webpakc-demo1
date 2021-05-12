@@ -2,7 +2,7 @@
  * @Author: zry
  * @Date: 2021-03-30 15:53:16
  * @LastEditors: zry
- * @LastEditTime: 2021-04-02 17:23:29
+ * @LastEditTime: 2021-05-12 11:17:27
  * @Description: 
  */
 /* eslint-disable */
@@ -20,14 +20,13 @@ const ExternalPlugin = require('./ExternalPlugin');
 const webpack = require('webpack');
 
 const basePath = path.resolve(__dirname + './../');
-const env = process.argv.env || 'production';
+const env = process.env.NODE_ENV || 'production';
 console.log(env, 1111, __dirname, basePath, 99199, ExternalPlugin.externals);
 
 let config = {
     mode: env,
     entry: path.resolve(__dirname + './../app.js'), // 入口文件
     output: {
-        // path: __dirname + '/bundle',//打包后的文件存放的地方
         path: basePath + '/bundle',//打包后的文件存放的地方
         filename: 'entry.js'//打包后输出文件的文件名
     },

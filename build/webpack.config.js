@@ -2,7 +2,7 @@
  * @Author: zry
  * @Date: 2021-03-30 15:53:45
  * @LastEditors: zry
- * @LastEditTime: 2021-04-02 16:59:31
+ * @LastEditTime: 2021-05-12 10:29:03
  * @Description: 
  */
 /* eslint-disable */
@@ -12,7 +12,9 @@ const common = require('./webpack.argv.config.js')();
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackBundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const basePath = path.resolve(__dirname + './../');
-console.log(1111, __dirname, basePath + '/bundle');
+const env = process.env.NODE_ENV || 'production';
+const analysis = process.env.NODE_ACTION;
+console.log(env, 1111, __dirname, basePath, 99199, analysis);
 
 module.exports = merge(common, {
     // entry: path.resolve(basePath + '/app.js'), // 入口文件
@@ -23,7 +25,7 @@ module.exports = merge(common, {
         filename: '[name].bundle.js',//打包后输出文件的文件名
     },
     plugins: [
-        // new WebpackBundleAnalyzer(),
+        analysis && new WebpackBundleAnalyzer(),
     //     // new HtmlWebpackPlugin({
     //     //     title: 'Your`s X-Jewelry',
     //     //     favicon: './zry.ico',

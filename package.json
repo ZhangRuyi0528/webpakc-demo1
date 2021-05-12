@@ -7,12 +7,10 @@
     "lib": "lib"
   },
   "scripts": {
-    "build": "webpack --config build/webpack.config.js",
-    "build-once": "webpack --config build/webpack.config.js --progress --colors --optimize-minimize",
-    "analysis": "webpack --config build/webpack.config.js --progress --colors --optimize-minimize",
+    "build": "NODE_ENV=development webpack --config build/webpack.config.js",
+    "analysis": "NODE_ACTION=analysis npm run build",
     "precommit": "lint-staged",
     "eslint": "eslint --ext .js,.vue src",
-    "serve-hot": "webpack-dev-server --hot --inline",
     "serve": "webpack-dev-server --open",
     "serve-pro": "webpack-dev-server --config build/webpack.argv.config.js --env production",
     "serve-dev": "webpack-dev-server --config build/webpack.argv.config.js --env development"
