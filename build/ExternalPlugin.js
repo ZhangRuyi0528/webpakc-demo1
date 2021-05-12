@@ -51,7 +51,7 @@ const externalConfigs = [
         var: 'ELEMENT',
         resources: () => ({
             scripts: [path.join(__dirname, '../node_modules/element-ui/lib/index.js')],
-            styles: [],
+            styles: [path.join(__dirname, '../node_modules/element-ui/lib/theme-chalk/index.css')],
             resources: []
         })
     }
@@ -84,7 +84,7 @@ class WebpackExternalPlugin {
                 const distPath = `${venderPath}bundle/vender/${distFileName}`;
                 venders.js.push(`/bundle/vender/${distFileName}`);
                 externalsConfig.push({
-                    path: `./vender/${distFileName}`
+                    path: `./vender/${distFileName}`,
                 });
                 copyConfigs.push({
                     from: script,
@@ -93,14 +93,27 @@ class WebpackExternalPlugin {
                 });
 
             });
+            resources.styles.forEach(style => {
+                const distFileName = `${externalConfig.name}-${version}/${path.basename(style)}`;
+                const distPath = `${venderPath}bundle/vender/${distFileName}`;
+                venders.css.push(`./vender/${distFileName}`);
+                // externalsConfig.push({
+                //     path: `./vender/${distFileName}`
+                // });
+                copyConfigs.push({
+                    from: style,
+                    to: distPath,
+                    force: true
+                });
+            });
         });
         new CopyWebpackPlugin(copyConfigs).apply(compiler);
         console.log('copyConfigs', copyConfigs, externalsConfig);
         // html中插入脚本依赖
         new HtmlWebpackIncludeAssetsPlugin({
-            // externals: externalsConfig,
-            // outputPath: ''
             scripts: externalsConfig,
+            links: venders.css,
+            // tags: venders.css.concat(venders.js),
             append: false,
         }).apply(compiler);
         compiler.hooks.emit.tapAsync({ name: 'WebpackExternalPlugin' }, (compilation, callback) => {

@@ -2,7 +2,7 @@
  * @Author: zry
  * @Date: 2021-03-30 15:53:45
  * @LastEditors: zry
- * @LastEditTime: 2021-05-12 10:29:03
+ * @LastEditTime: 2021-05-12 14:22:44
  * @Description: 
  */
 /* eslint-disable */
@@ -10,7 +10,7 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 const common = require('./webpack.argv.config.js')();
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WebpackBundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const InitAnalysisPlugin = require('./InitAnalysisPlugin.js');
 const basePath = path.resolve(__dirname + './../');
 const env = process.env.NODE_ENV || 'production';
 const analysis = process.env.NODE_ACTION;
@@ -25,11 +25,13 @@ module.exports = merge(common, {
         filename: '[name].bundle.js',//打包后输出文件的文件名
     },
     plugins: [
-        analysis && new WebpackBundleAnalyzer(),
-    //     // new HtmlWebpackPlugin({
-    //     //     title: 'Your`s X-Jewelry',
-    //     //     favicon: './zry.ico',
-    //     //     template: path.resolve(basePath + '/app/html/index.html')
-    //     // }),
+        new InitAnalysisPlugin({
+            analysis
+        }),
+        //     // new HtmlWebpackPlugin({
+        //     //     title: 'Your`s X-Jewelry',
+        //     //     favicon: './zry.ico',
+        //     //     template: path.resolve(basePath + '/app/html/index.html')
+        //     // }),
     ]
 });

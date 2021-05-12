@@ -20,6 +20,7 @@
 <script>
 import XMap from '../components/source/mapDialog';
 import { mapBtns } from '../components/source/mapBtns';
+const AMap = window.AMap;
 // import BMap from '../components/source/map';
 export default {
     name: 'child-map',
@@ -39,7 +40,7 @@ export default {
     mounted() {
         Promise.resolve(XMap()).then(() => {
             setTimeout(() => {
-                if (window.AMap) {
+                if (AMap) {
                     this.xMap = new AMap.Map('my-map-dialog', {
                         resizeEnable: true,
                         zoom: 11,

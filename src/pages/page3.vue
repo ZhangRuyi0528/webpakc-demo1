@@ -1,3 +1,10 @@
+<!--
+ * @Author: zry
+ * @Date: 2021-03-30 15:53:45
+ * @LastEditors: zry
+ * @LastEditTime: 2021-05-12 14:48:01
+ * @Description: 
+-->
 <template>
     <div>
         <h3 class="el-icon-loading">page3</h3>
@@ -28,7 +35,7 @@
 
 
 <script>
-import $ from 'jquery';
+// import $ from 'jquery';
 export default {
     name: 'page3',
     data() {

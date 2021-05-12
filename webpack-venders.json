@@ -1,1 +1,1 @@
-{"js":["/bundle/vender/vue-2.6.12/vue.js","/bundle/vender/jquery-3.6.0/jquery.js","/bundle/vender/vue-router-3.5.1/vue-router.js","/bundle/vender/element-ui-2.15.1/index.js"],"css":[]}
+{"js":["/bundle/vender/vue-2.6.12/vue.js","/bundle/vender/jquery-3.6.0/jquery.js","/bundle/vender/vue-router-3.5.1/vue-router.js","/bundle/vender/element-ui-2.15.1/index.js"],"css":["./vender/element-ui-2.15.1/index.css"]}
